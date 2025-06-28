@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – Afrna Community Library</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">📚 Afrna Library</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" onclick="toggleChatbox()">Chatbox</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="section">
+    <h2>Contact Us</h2>
+    <p>Have a question or need support? Reach out anytime — we're here to help.</p>
+
+    <div style="max-width: 600px; margin: 2rem auto; text-align: left;">
+      <p><strong>📍 Location:</strong> Cyberjaya, Malaysia</p>
+      <p><strong>📧 Email:</strong> <a href="mailto:afrnacommunitylibrarian@gmail.com">afrnacommunitylibrarian@gmail.com</a></p>
+      <p><strong>📞 Phone:</strong> <a href="tel:+60172120653">017-212 0653</a></p>
+      <p><strong>🔗 Social Media:</strong></p>
+      <ul style="list-style-type: disc; margin-left: 1.5rem;">
+        <li><a href="#" target="_blank">Facebook</a></li>
+        <li><a href="#" target="_blank">Instagram</a></li>
+        <li><a href="#" target="_blank">X (Twitter)</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Open Hours -->
+  <section class="section">
+    <h2>Library Open Hours</h2>
+    <p>Come visit us during these hours:</p>
+    <ul style="list-style-type: none; padding: 0; font-weight: 500;">
+      <li>Monday – Friday: 9:00 AM – 6:00 PM</li>
+      <li>Saturday: 10:00 AM – 4:00 PM</li>
+      <li>Sunday & Public Holiday: Closed</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Afrna Community Librarian • Future-Ready Library</p>
+  </footer>
+
+  <!-- Chatbox -->
+  <div id="chatbox" class="chatbox">
+    <div class="chat-header">
+      <span>Librarian Chat</span>
+      <button onclick="toggleChatbox()">✖</button>
+    </div>
+    <div class="chat-body" id="chat-content">
+      <p><em>Hello! How can I help you today?</em></p>
+    </div>
+    <form onsubmit="sendMessage(event)" class="chat-form">
+      <input type="text" id="chat-input" placeholder="Type your message..." required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- Chat Script -->
+  <script>
+    function toggleChatbox() {
+      const chat = document.getElementById("chatbox");
+      chat.style.display = chat.style.display === "none" ? "block" : "none";
+    }
+
+    function sendMessage(event) {
+      event.preventDefault();
+      const input = document.getElementById("chat-input");
+      const content = document.getElementById("chat-content");
+
+      const userMsg = document.createElement("p");
+      userMsg.innerHTML = "<strong>You:</strong> " + input.value;
+      content.appendChild(userMsg);
+
+      const reply = document.createElement("p");
+      reply.innerHTML = "<strong>Librarian:</strong> Thank you! I’ll reply soon.";
+      content.appendChild(reply);
+
+      input.value = "";
+      content.scrollTop = content.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>

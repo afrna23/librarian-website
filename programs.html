@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Programs – Afrna Community Library</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">📚 Afrna Library</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" onclick="toggleChatbox()">Chatbox</a></li>
+    </ul>
+  </nav>
+
+  <!-- Intro -->
+  <section class="section">
+    <h2>Our Programs & Events</h2>
+    <p>We offer a range of educational and creative programs for students and adults — designed to spark curiosity, build skills, and connect communities.</p>
+  </section>
+
+  <!-- Program Cards -->
+  <section class="features-grid">
+    <div class="feature-card">
+      <h3>💻 Digital Literacy Class</h3>
+      <p>Learn how to use digital tools safely and effectively — for all ages and levels.</p>
+    </div>
+    <div class="feature-card">
+      <h3>📚 Homework Help Zone</h3>
+      <p>Daily sessions for students to get support, resources, and study guidance.</p>
+    </div>
+    <div class="feature-card">
+      <h3>💼 Job Skills for Adults</h3>
+      <p>Workshops on resumes, online tools, interviews, and upskilling for adults.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🎨 Maker Club (Weekend)</h3>
+      <p>Creative tech + art activities including coding, robotics, and 3D printing fun!</p>
+    </div>
+  </section>
+
+  <!-- Register CTA -->
+  <section class="cta">
+    <a href="register.html" class="button">Register for a Program</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Afrna Community Librarian • Future-Ready Library</p>
+  </footer>
+
+  <!-- Chatbox -->
+  <div id="chatbox" class="chatbox">
+    <div class="chat-header">
+      <span>Librarian Chat</span>
+      <button onclick="toggleChatbox()">✖</button>
+    </div>
+    <div class="chat-body" id="chat-content">
+      <p><em>Hello! How can I help you today?</em></p>
+    </div>
+    <form onsubmit="sendMessage(event)" class="chat-form">
+      <input type="text" id="chat-input" placeholder="Type your message..." required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- Chat Script -->
+  <script>
+    function toggleChatbox() {
+      const chat = document.getElementById("chatbox");
+      chat.style.display = chat.style.display === "none" ? "block" : "none";
+    }
+
+    function sendMessage(event) {
+      event.preventDefault();
+      const input = document.getElementById("chat-input");
+      const content = document.getElementById("chat-content");
+
+      const userMsg = document.createElement("p");
+      userMsg.innerHTML = "<strong>You:</strong> " + input.value;
+      content.appendChild(userMsg);
+
+      const reply = document.createElement("p");
+      reply.innerHTML = "<strong>Librarian:</strong> Thank you! I’ll reply soon.";
+      content.appendChild(reply);
+
+      input.value = "";
+      content.scrollTop = content.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>

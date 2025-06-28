@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library – Afrna Community Library</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">📚 Afrna Library</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="library.html">Library</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" onclick="toggleChatbox()">Chatbox</a></li>
+    </ul>
+  </nav>
+
+  <!-- Library Description -->
+  <section class="section">
+    <h2>About the Community Library</h2>
+    <p>Our library is more than books. It’s a future-ready community hub built to support learning, creativity, and growth for both students and adults. We blend traditional resources with smart technology to make information more accessible and exciting.</p>
+  </section>
+
+  <!-- Key Features -->
+  <section class="features-grid">
+    <div class="feature-card">
+      <h3>📖 RFID Book Tracking</h3>
+      <p>Fast and efficient self-checkout with RFID technology — no more waiting in line.</p>
+    </div>
+    <div class="feature-card">
+      <h3>💡 Smart Study Rooms</h3>
+      <p>Private spaces with smartboards, charging stations, and noise control features.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🌐 Digital Access Zone</h3>
+      <p>Free access to online journals, e-books, virtual libraries, and learning platforms.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🤝 Community Corner</h3>
+      <p>Host meetups, workshops, and collaborative events for the public.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Afrna Community Librarian • Future-Ready Library</p>
+  </footer>
+
+  <!-- Chatbox -->
+  <div id="chatbox" class="chatbox">
+    <div class="chat-header">
+      <span>Librarian Chat</span>
+      <button onclick="toggleChatbox()">✖</button>
+    </div>
+    <div class="chat-body" id="chat-content">
+      <p><em>Hello! How can I help you today?</em></p>
+    </div>
+    <form onsubmit="sendMessage(event)" class="chat-form">
+      <input type="text" id="chat-input" placeholder="Type your message..." required />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <!-- Chatbox Script -->
+  <script>
+    function toggleChatbox() {
+      const chat = document.getElementById("chatbox");
+      chat.style.display = chat.style.display === "none" ? "block" : "none";
+    }
+
+    function sendMessage(event) {
+      event.preventDefault();
+      const input = document.getElementById("chat-input");
+      const content = document.getElementById("chat-content");
+
+      const userMsg = document.createElement("p");
+      userMsg.innerHTML = "<strong>You:</strong> " + input.value;
+      content.appendChild(userMsg);
+
+      const reply = document.createElement("p");
+      reply.innerHTML = "<strong>Librarian:</strong> Thank you! I’ll reply soon.";
+      content.appendChild(reply);
+
+      input.value = "";
+      content.scrollTop = content.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>
